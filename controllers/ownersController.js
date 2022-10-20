@@ -1,8 +1,8 @@
-const {pool} = require('../db.js');
+const Owner = require('../models/ownerModel.js')
 
 const getOwners = async (request, response) => {
-    const x = await pool.query('SELECT * FROM owners');
-    response.send('Hello')
+    const ownersData = await Owner.getOwnersFromDB();
+    response.send(ownersData.rows);
 }
 
 
